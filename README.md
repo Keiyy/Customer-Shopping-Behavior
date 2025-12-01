@@ -11,73 +11,33 @@ A Streamlit web application for predicting customer purchase frequency using a t
 
 ## Installation
 
-1. **Clone or download the project:**
+1. **Clone the repository:**
 
-```bash
-cd "d:\Coding\Python\Personal Projects\ConsumerBehavior"
+```powershell
+git clone https://github.com/Keiyy/Customer-Shopping-Behavior.git
+cd Customer-Shopping-Behavior
 ```
 
-2. **Install dependencies:**
+2. **(Optional) Create and activate a conda environment:**
 
-```bash
+```powershell
+conda create -n tf python=3.8
+conda activate tf
+```
+
+3. **Install dependencies:**
+
+```powershell
 pip install -r requirements.txt
 ```
 
 ## Running the App
 
-### Local Development
-
-```bash
+```powershell
 streamlit run app.py
 ```
 
 This will open the app in your default browser at `http://localhost:8501`
-
-### Deploy to Streamlit Cloud
-
-1. **Push your code to GitHub:**
-
-```bash
-git add .
-git commit -m "Initial commit"
-git push origin main
-```
-
-2. **Go to [Streamlit Cloud](https://streamlit.io/cloud)**
-
-3. **Create a new app:**
-   - Click "New app"
-   - Select your GitHub repository
-   - Select the branch (main)
-   - Set the main file path to `app.py`
-   - Click "Deploy"
-
-### Deploy to Heroku
-
-1. **Create a Procfile:**
-
-```
-web: streamlit run app.py
-```
-
-2. **Create a setup.sh file:**
-
-```bash
-mkdir -p ~/.streamlit/
-echo "[server]
-headless = true
-port = \$PORT
-enableCORS = false
-" > ~/.streamlit/config.toml
-```
-
-3. **Deploy:**
-
-```bash
-heroku login
-heroku create your-app-name
-git push heroku main
-```
 
 ## File Structure
 
@@ -125,25 +85,32 @@ ConsumerBehavior/
 - Ensure `best_model.pkl` exists in the same directory as `app.py`
 - Run the Jupyter notebook to regenerate the model
 
+**Module not found / 'streamlit' not recognized:**
+
+- Make sure your conda environment is activated: `conda activate tf`
+- Install missing packages: `pip install -r requirements.txt`
+
 **Port already in use:**
 
-```bash
+```powershell
 streamlit run app.py --server.port 8502
 ```
 
-**Module not found:**
+**Conda not working in PowerShell:**
+If `conda` is not recognized, run:
 
-```bash
-pip install -r requirements.txt
+```powershell
+conda init powershell
 ```
+
+Then restart PowerShell and activate your environment again.
 
 ## Future Enhancements
 
 - Add batch prediction from CSV files
 - Include model performance metrics
 - Add data visualization dashboard
-- Implement API endpoint for model predictions
-- Add user authentication
+- Improve model accuracy with hyperparameter tuning
 
 ## License
 
